@@ -15,8 +15,8 @@ MonoBehaviour:
   debugShaders:
     debugReplacementPS: {fileID: 4800000, guid: cf852408f2e174538bcd9b7fda1c5ae7, type: 3}
   m_RendererFeatures:
-  - {fileID: 6833220822196215980}
-  m_RendererFeatureMap: ace0ce42227ad45e
+  - {fileID: 7455051554357048218}
+  m_RendererFeatureMap: 9af3acdfe3a97567
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_ClusteredRendering: 0
   m_TileSize: 32
   m_IntermediateTextureMode: 1
---- !u!114 &6833220822196215980
+--- !u!114 &7455051554357048218
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,3 +66,7 @@ MonoBehaviour:
   m_Name: Normals
   m_EditorClassIdentifier: 
   m_Active: 1
+  Event: 350
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 2147483647

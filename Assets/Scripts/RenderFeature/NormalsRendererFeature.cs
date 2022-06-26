@@ -1,4 +1,7 @@
 using System;
+using System.Linq;
+using System.Reflection;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -21,6 +24,7 @@ namespace RenderFeature
 
         RenderTargetHandle m_NormalsHandle;
         Material m_Material;
+        private Int32 cullingLayer;
 
         #endregion
 
@@ -29,16 +33,17 @@ namespace RenderFeature
         internal NormalsRenderPass()
         {
             // Set data
-            renderPassEvent = RenderPassEvent.AfterRenderingOpaques;
         }
 
         #endregion
 
         #region State
 
-        internal void Setup()
+        internal void Setup(RenderPassEvent RenderPassEvent,LayerMask layerMask)
         {
             m_Material = new Material(Shader.Find(kShader));
+            renderPassEvent = RenderPassEvent;
+            cullingLayer = layerMask;
         }
 
         public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
@@ -118,7 +123,7 @@ namespace RenderFeature
             var cullingResults = context.Cull(ref cullingParameters);
 
             var drawingSettings = GetDrawingSettings(ref renderingData);
-            var filteringSettings = new FilteringSettings(RenderQueueRange.opaque, camera.cullingMask);
+            var filteringSettings = new FilteringSettings(RenderQueueRange.all, cullingLayer);
             var renderStateBlock = new RenderStateBlock(RenderStateMask.Nothing);
 
             // Draw Renderers
@@ -158,6 +163,9 @@ namespace RenderFeature
     internal class NormalsRendererFeature : ScriptableRendererFeature
     {
         #region Fields
+
+        public RenderPassEvent Event;//和官方的一样用来表示什么时候插入Pass，默认在渲染完不透明物体后
+        public LayerMask LayerMask;
         static NormalsRendererFeature s_Instance;
         readonly NormalsRenderPass m_NormalsRenderPass;
 
@@ -182,13 +190,13 @@ namespace RenderFeature
         }
 
         #endregion
-
+        
         #region RenderPass
 
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
             // Motion vector pass
-            m_NormalsRenderPass.Setup();
+            m_NormalsRenderPass.Setup(Event,LayerMask);
             renderer.EnqueuePass(m_NormalsRenderPass);
         }
 
