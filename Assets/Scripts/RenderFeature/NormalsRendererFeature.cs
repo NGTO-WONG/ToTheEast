@@ -118,7 +118,7 @@ namespace RenderFeature
             var cullingParameters = new ScriptableCullingParameters();
             if (!camera.TryGetCullingParameters(out cullingParameters))
                 return;
-
+            
             // Culling Results
             var cullingResults = context.Cull(ref cullingParameters);
 

@@ -15,8 +15,8 @@ MonoBehaviour:
   debugShaders:
     debugReplacementPS: {fileID: 4800000, guid: cf852408f2e174538bcd9b7fda1c5ae7, type: 3}
   m_RendererFeatures:
-  - {fileID: 7455051554357048218}
-  m_RendererFeatureMap: 9af3acdfe3a97567
+  - {fileID: 7886237755040788757}
+  m_RendererFeatureMap: 15f17a83748b716d
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_ClusteredRendering: 0
   m_TileSize: 32
   m_IntermediateTextureMode: 1
---- !u!114 &7455051554357048218
+--- !u!114 &7886237755040788757
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,11 +62,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0499ad26fb760d047ae05aeb57b71f6e, type: 3}
-  m_Name: Normals
+  m_Script: {fileID: 11500000, guid: e398a8e32d41e4d449c40b813c09adac, type: 3}
+  m_Name: NoramlLineRenderPassFeature
   m_EditorClassIdentifier: 
   m_Active: 1
-  Event: 350
-  LayerMask:
-    serializedVersion: 2
-    m_Bits: 2147483647
+  setting:
+    layer:
+      serializedVersion: 2
+      m_Bits: 2147483647
+    normalTexMat: {fileID: 2100000, guid: d8d78f717cf93c1469a1eb2ea3f77fc7, type: 2}
+    normalLineMat: {fileID: 2100000, guid: 26e9f42581006e34fa0665d20fac73e4, type: 2}
+    passEvent: 150
+    Edge: 0.311
