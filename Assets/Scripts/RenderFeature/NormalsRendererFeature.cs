@@ -13,8 +13,8 @@ namespace RenderFeature
         #region Fields
 
         const string kShader = "Custom/ObjectNormals";
-        const string kNormalsTexture = "_NormalsTexture";
-        const string kProfilingTag = "Normals";
+        string kNormalsTexture;
+        const string kProfilingTag = "GetNormalTexture";
 
         static readonly string[] s_ShaderTags = new string[]
         {
@@ -39,11 +39,12 @@ namespace RenderFeature
 
         #region State
 
-        internal void Setup(RenderPassEvent RenderPassEvent,LayerMask layerMask)
+        internal void Setup(RenderPassEvent RenderPassEvent,LayerMask layerMask,string TextureName)
         {
             m_Material = new Material(Shader.Find(kShader));
             renderPassEvent = RenderPassEvent;
             cullingLayer = layerMask;
+            kNormalsTexture = TextureName;
         }
 
         public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
@@ -166,6 +167,7 @@ namespace RenderFeature
 
         public RenderPassEvent Event;//和官方的一样用来表示什么时候插入Pass，默认在渲染完不透明物体后
         public LayerMask LayerMask;
+        public string  TextureName;
         static NormalsRendererFeature s_Instance;
         readonly NormalsRenderPass m_NormalsRenderPass;
 
@@ -192,11 +194,10 @@ namespace RenderFeature
         #endregion
         
         #region RenderPass
-
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
             // Motion vector pass
-            m_NormalsRenderPass.Setup(Event,LayerMask);
+            m_NormalsRenderPass.Setup(Event,LayerMask,TextureName);
             renderer.EnqueuePass(m_NormalsRenderPass);
         }
 

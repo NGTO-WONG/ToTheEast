@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5278214087575235175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4641969ffd302f4ba2bcf2d83f19cb5, type: 3}
+  m_Name: CustomPostProcess
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    renderersAfterOpaqueAndSky:
+    - Yetman.PostProcess.EdgeDetectionEffectRenderer, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    renderersBeforePostProcess: []
+    renderersAfterPostProcess: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +85,8 @@ MonoBehaviour:
   m_Name: Normals
   m_EditorClassIdentifier: 
   m_Active: 1
-  Event: 350
+  Event: 250
   LayerMask:
     serializedVersion: 2
     m_Bits: 2147483647
+  TextureName: _ScreenNormalTexture
