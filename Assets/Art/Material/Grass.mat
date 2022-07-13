@@ -8,9 +8,10 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Grass
-  m_Shader: {fileID: -6465566751694194690, guid: 63808b06aab3bbc4b85d799641b6ec35, type: 3}
+  m_Shader: {fileID: 4800000, guid: 7d0c79c5e39d33b43aa27698ed15fa73, type: 3}
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _ADD_LIGHT_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -86,6 +87,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _ADD_LIGHT: 0
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -103,6 +105,7 @@ Material:
     - _FresnelThreshold: 0.5
     - _GGXSpecular: 0
     - _GIIntensity: 1
+    - _Gloss: 20
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossinessSource: 0
@@ -142,7 +145,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.58714384, g: 1, b: 0.4198113, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.6218447, g: 1, b: 0.4669811, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _MainClor: {r: 0.17381807, g: 0.6981132, b: 0.02963687, a: 0}
@@ -151,6 +154,7 @@ Material:
     - _ReflectColor: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _SpecularColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
     - _SpecularLightOffset: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4444899160335667597
