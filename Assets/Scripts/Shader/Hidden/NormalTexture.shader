@@ -1,4 +1,4 @@
-Shader "Custom/ObjectNormals"
+Shader "_Custom/ObjectNormals"
 {
     SubShader
     {
@@ -8,6 +8,11 @@ Shader "Custom/ObjectNormals"
             #pragma vertex vert
             #pragma fragment frag
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            
+         TEXTURE2D(_CameraDepthTexture);
+         SAMPLER(sampler_CameraDepthTexture);
+            
+        float4 _CameraColorTexture_TexelSize;
             struct Attributes
             {
                 float4 positionOS   : POSITION;
@@ -27,6 +32,7 @@ Shader "Custom/ObjectNormals"
             }
             half4 frag(Varyings input) : SV_Target
             {
+                float2 size=_CameraColorTexture_TexelSize;
                 half3 col= mul(input.normalWS,unity_MatrixInvV);
                 return half4(col, 1);
             }

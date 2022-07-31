@@ -12,7 +12,7 @@ namespace RenderFeature
     {
         #region Fields
 
-        const string kShader = "Custom/ObjectNormals";
+        const string kShader = "_Custom/ObjectNormals";
         const string kNormalsTexture = "_NormalsTexture";
         const string kProfilingTag = "Normals";
 
