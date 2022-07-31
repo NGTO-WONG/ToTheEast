@@ -2,7 +2,7 @@
 // Written by @Cyanilux
 // https://www.cyanilux.com/tutorials/urp-shader-code
 
-Shader "_Custom/MyLit"
+Shader "Cyanilux/URPTemplates/SimpleLitShaderExample"
 {
     Properties
     {
