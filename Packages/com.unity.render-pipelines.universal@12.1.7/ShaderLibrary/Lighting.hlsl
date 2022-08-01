@@ -220,6 +220,7 @@ LightingData CreateLightingData(InputData inputData, SurfaceData surfaceData)
 half3 CalculateBlinnPhong(Light light, InputData inputData, SurfaceData surfaceData)
 {
     half3 attenuatedLightColor = light.color * (light.distanceAttenuation * light.shadowAttenuation);
+    
     half3 lightColor = LightingLambert(attenuatedLightColor, light.direction, inputData.normalWS);
 
     lightColor *= surfaceData.albedo;

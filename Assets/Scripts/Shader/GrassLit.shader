@@ -2,7 +2,7 @@
 // Written by @Cyanilux
 // https://www.cyanilux.com/tutorials/urp-shader-code
 
-Shader "Cyanilux/URPTemplates/SimpleLitShaderExample"
+Shader "_Custom/GrassLit"
 {
     Properties
     {
